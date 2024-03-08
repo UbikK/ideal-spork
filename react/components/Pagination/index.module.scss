@@ -1,0 +1,71 @@
+@import "@styles/theme.scss";
+.container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  background-color: adjust-color(
+    map-get($map: $colors, $key: "primary"),
+    $alpha: -0.4
+  );
+  position: relative;
+  bottom: 0;
+  //width: 100%;
+  padding: 0;
+  height: 2.5rem;
+  * {
+    background-color: transparent;
+  }
+  .previous {
+    padding: 2rem 1rem;
+  }
+
+  .dots {
+    padding: 2rem 1rem;
+  }
+
+  .next {
+    padding: 2rem 1rem;
+  }
+
+  .pill {
+    text-decoration: inherit;
+    color: inherit;
+    padding: 0.5rem;
+    > a {
+      text-decoration: inherit;
+      color: inherit;
+    }
+    border-radius: 8px;
+
+    &:hover {
+      //@include mixins.coloredShadow(variables.$accent-color);
+      background-color: map-get($map: $colors, $key: "primary");
+      border: solid 1px map-get($map: $colors, $key: "primary");
+    }
+
+    &.selected {
+      background-color: map-get($map: $colors, $key: "secondary");
+      border: solid 1px map-get($map: $colors, $key: "secondary");
+    }
+  }
+
+  .arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+    &.right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+
+    &.left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+  }
+}

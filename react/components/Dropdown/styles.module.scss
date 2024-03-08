@@ -1,0 +1,162 @@
+@import "@styles/theme";
+
+.customSelect {
+  position: relative;
+  //width: 400px;
+  width: 100%;
+  // max-width: 100%;
+  font-size: 1.15rem;
+
+  height: 100%;
+
+  &.inline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  label {
+    //styleName: Text/XS Bold;
+    font-family: "Be Vietnam Pro" sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    background-color: transparent;
+    width: 100px;
+  }
+
+  .selectButton {
+    width: 100%;
+    font-size: 1.15rem;
+    background-color: map-get($map: $colors, $key: "primary");
+    padding: 8px 12px;
+    border-radius: 28px;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .selectedValue {
+      background-color: transparent;
+
+      text-align: left;
+      //styleName: Grey;
+      font-family: "Inter" sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0px;
+      text-align: left;
+      text-transform: capitalize;
+
+      &.placeholder {
+        color: #ffffff99;
+      }
+    }
+
+    .arrowButton {
+      background-color: transparent;
+
+      .arrow {
+        transition: transform ease-in-out 0.3s;
+        background-color: transparent;
+
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .selectDropdown {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    list-style: none;
+    width: 100%;
+    //box-shadow: 0px 0px 16px 0px map-get($map: $colors, $key: "primary") inset;
+    background-color: map-get($map: $colors, $key: "background");
+    border: none;
+    border-radius: 28px;
+    // padding: 8px 12px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    transition: 0.5s ease;
+    //styleName: Grey;
+    font-family: "Inter" sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    &.inline {
+      margin-top: 75%;
+      width: 70%;
+      left: 33%;
+    }
+
+    &.active {
+      opacity: 1;
+      z-index: 10;
+      //visibility: visible;
+      display: block;
+    }
+
+    &:focus-within {
+      box-shadow: 0px 0px 16px 0px map-get($map: $colors, $key: "primary") inset;
+    }
+
+    input:focus ~ label {
+      background-color: map-get($map: $colors, $key: "primary");
+    }
+
+    li {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      border-radius: 28px;
+      padding: 8px 12px;
+
+      &:hover,
+      input:checked ~ label {
+        background-color: map-get($map: $colors, $key: "primary");
+      }
+
+      label {
+        text-transform: capitalize;
+        width: 100%;
+        padding: 8px 10px;
+        cursor: pointer;
+        font-family: "Inter" sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        background-color: transparent;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: map-get($map: $colors, $key: "primary");
+      border-radius: 25px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: map-get($map: $colors, $key: "primary");
+      border-radius: 25px;
+    }
+  }
+}
